@@ -8,5 +8,5 @@ settings = {
     "Proxy": False,
     "DumpPacket": False,
     "Blacklist": [24109],
-    "DumpMajor": 42
+    "DumpMajor": 44
 }
