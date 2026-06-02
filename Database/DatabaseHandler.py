@@ -1,3 +1,4 @@
+import os
 import json
 import sqlite3
 import traceback
@@ -5,6 +6,8 @@ import traceback
 
 class DatabaseHandler():
     def __init__(self):
+        if not os.path.exists("Database/Files"):
+            os.makedirs("Database/Files", exist_ok=True)
         self.conn = sqlite3.connect("Database/Files/player.sqlite")
         self.cursor = self.conn.cursor()
         try:

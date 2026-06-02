@@ -1,0 +1,46 @@
+Listening for new connection...
+New connection with address 127.0.0.1 on port 54818
+10101 : LoginMessage created
+[WARNING] Too long String encountered, length 4294967295, max 900000
+
+AccountID: [0, 0]
+PassToken: b''
+ClientMajor: 44
+ClientMinor: 1
+ClientBuild: 226
+ResourceSha: eb0839807af77681468eb25dcb49ac78639e6265
+Device: TECNO KI7
+PreferredLanguage: [1, 17]
+PreferredDeviceLanguage: ru-RU
+OSVersion: 13
+isAndroid: True
+IMEI:
+AndroidID: 3c8d354591efb461
+isAdvertisingEnabled: True
+AppleIFV:
+RndKey: 32767
+AppStore: 2
+ClientVersion: 44.226
+TencentOpenId:
+TencentToken:
+TencentPlatform: 0
+DeviceVerifierResponse:
+AppLicensingSignature:
+SupercellIdToken: b''
+UpdateMaintenanceMode: False
+YoozooOsdkTicket:
+YoozooDeviceId:
+
+Traceback (most recent call last):
+  File "/storage/emulated/0/Download/legacy/Legacy-Brawl-main/Classes/MessageManager.py", line 18, in receiveMessage
+    message.execute(self, message.fields)
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^
+  File "/storage/emulated/0/Download/legacy/Legacy-Brawl-main/Classes/Packets/Client/Authentification/LoginMessage.py", line 57, in execute
+    db_instance = DatabaseHandler()
+  File "/storage/emulated/0/Download/legacy/Legacy-Brawl-main/Database/DatabaseHandler.py", line 8, in __init__
+    self.conn = sqlite3.connect("Database/Files/player.sqlite")
+                ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+sqlite3.OperationalError: unable to open database file
+
+23457 : LobbyInfoMessage created
+Client with ip: ('127.0.0.1', 54818) disconnected!
