@@ -27,12 +27,12 @@ class Player:
     TokensDoubler = 0
 
     SelectedSkins = {}
-    SelectedBrawlers = [0]
+    SelectedBrawlers = [0, 0, 0]
     RandomizerSelectedSkins = []
-    OwnedPins = []
-    OwnedThumbnails = []
+    OwnedPins = list(range(688))
+    OwnedThumbnails = [60, 61, 63, 64, 69, 70, 72, 73, 76, 77, 78, 79, 83, 84]
     OwnedBrawlers = {
-        0: {'CardID': 0, 'Skins': [], 'Trophies': 0, 'HighestTrophies': 0, 'PowerLevel': 1, 'PowerPoints': 0, 'State': 2},
+        0: {'CardID': 0, 'Skins': [29, 52, 122, 158, 194, 195, 319, 320, 321, 358], 'Trophies': 0, 'HighestTrophies': 0, 'PowerLevel': 1, 'PowerPoints': 0, 'State': 2},
     }
 
     def __init__(self):
