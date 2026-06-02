@@ -17,7 +17,7 @@ class LoginOkMessage(PiranhaMessage):
         self.writeString(player.Token)
         self.writeString()
         self.writeString()
-        self.writeInt(42)
+        self.writeInt(fields.get("ClientMajor", 42))
         self.writeInt(333)
         self.writeInt(1)
         self.writeString("dev")

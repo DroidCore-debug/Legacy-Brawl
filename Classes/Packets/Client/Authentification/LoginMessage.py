@@ -51,7 +51,7 @@ class LoginMessage(PiranhaMessage):
         return fields
 
     def execute(message, calling_instance, fields):
-        if fields["ClientMajor"] == 42:
+        if fields["ClientMajor"] in [42, 44]:
             calling_instance.player.ClientVersion = f'{str(fields["ClientMajor"])}.{str(fields["ClientBuild"])}.{str(fields["ClientMinor"])}'
             fields["Socket"] = calling_instance.client
             db_instance = DatabaseHandler()
@@ -66,7 +66,7 @@ class LoginMessage(PiranhaMessage):
             if Configuration.settings["UseContentUpdater"] == True and fields["ResourceSha"] != contentUpdateInfo[1]:
                 Messaging.sendMessage(20103, {'Socket': calling_instance.client, 'ErrorID': 7, 'Message': None, 'FingerprintData': Utility.getFingerprintData(contentUpdateInfo[1]), 'ContentURL': f'http://{socket.gethostbyname(socket.gethostname())}:8080'})
 
-            elif fields["ClientMajor"] == 42:
+            elif fields["ClientMajor"] in [42, 44]:
                 Messaging.sendMessage(20104, fields, calling_instance.player)
                 Messaging.sendMessage(24101, fields, calling_instance.player)
             db_instance.cursor.close()
