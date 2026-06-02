@@ -6,9 +6,10 @@ import traceback
 
 class DatabaseHandler():
     def __init__(self):
-        if not os.path.exists("Database/Files"):
-            os.makedirs("Database/Files", exist_ok=True)
-        self.conn = sqlite3.connect("Database/Files/player.sqlite")
+        db_dir = os.path.join(os.path.dirname(__file__), "Files")
+        if not os.path.exists(db_dir):
+            os.makedirs(db_dir, exist_ok=True)
+        self.conn = sqlite3.connect(os.path.join(db_dir, "player.sqlite"))
         self.cursor = self.conn.cursor()
         try:
             self.cursor.execute("""CREATE TABLE main (ID int, Token text, Data json)""")
@@ -57,7 +58,7 @@ class DatabaseHandler():
             playerData = json.loads(self.cursor.fetchall()[0][2])
             player.ID = playerData["ID"]
             player.Name = playerData["Name"]
-            player.Registered = playerData["Registered"]
+            player.Registered = True
             player.Thumbnail = playerData["Thumbnail"]
             player.Namecolor = playerData["Namecolor"]
             player.Region = playerData["Region"]
@@ -81,6 +82,7 @@ class DatabaseHandler():
 
     def updatePlayerData(self, data, calling_instance):
         try:
+            data["Registered"] = True
             self.cursor.execute("UPDATE main SET Data=? WHERE ID=?", (json.dumps(data, ensure_ascii=0), calling_instance.player.ID[1]))
             self.conn.commit()
             self.loadAccount(calling_instance.player, calling_instance.player.ID)

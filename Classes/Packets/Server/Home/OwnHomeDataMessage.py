@@ -413,8 +413,8 @@ class OwnHomeDataMessage(PiranhaMessage):
         self.writeVInt(player.Level)  # Player Level
         self.writeVInt(100)
         self.writeVInt(0)  # CumulativePurchasedDiamonds or Avatar User Level Tier | 10000 < Level Tier = 3 | 1000 < Level Tier = 2 | 0 < Level Tier = 1
-        self.writeVInt(0)  # Battle Count
-        self.writeVInt(0)  # WinCount
+        self.writeVInt(10)  # Battle Count
+        self.writeVInt(10)  # WinCount
         self.writeVInt(0)  # LoseCount
         self.writeVInt(0)  # WinLooseStreak
         self.writeVInt(0)  # NpcWinCount

@@ -246,6 +246,8 @@ class ByteStream(ChecksumEncoder):
         length += (self.messagePayload[self.offset + 2] << 8)
         length += (self.messagePayload[self.offset + 3])
         self.offset += 4
+        if length & 0x80000000:
+            length -= 0x100000000
         if length <= -1:
             if length != -1:
                 Debugger.warning("Negative String length encountered.")
@@ -264,6 +266,8 @@ class ByteStream(ChecksumEncoder):
         length += (self.messagePayload[self.offset + 2] << 8)
         length += (self.messagePayload[self.offset + 3])
         self.offset += 4
+        if length & 0x80000000:
+            length -= 0x100000000
         if length <= -1:
             if length != -1:
                 Debugger.warning("Negative String length encountered.")
