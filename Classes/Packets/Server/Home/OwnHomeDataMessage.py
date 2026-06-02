@@ -148,7 +148,7 @@ class OwnHomeDataMessage(PiranhaMessage):
         self.writeLong(10, 0)  # Power Play Trophies Gained
         self.writeLong(12, 1)  # Unknown
         self.writeLong(14, 0)  # Coins Gained
-        self.writeLong(15, 0)  # AgeScreen | 3 = underage (disable social media) | 1 = age popup
+        self.writeLong(15, 3)  # AgeScreen | 3 = underage (disable social media) | 1 = age popup
         self.writeLong(16, 1)
         self.writeLong(17, 0)  # Team Chat Muted
         self.writeLong(18, 1)  # Esport Button

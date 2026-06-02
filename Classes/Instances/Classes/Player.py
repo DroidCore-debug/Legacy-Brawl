@@ -9,7 +9,7 @@ class Player:
     ID = [0, 1]
     Token = ""
     Name = "Brawler"
-    Registered = False
+    Registered = True
     Thumbnail = 0
     Namecolor = 0
     Region = "CA"
